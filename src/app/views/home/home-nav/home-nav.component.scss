@@ -1,0 +1,141 @@
+@import '../../../../assets/styles/color';
+
+.top-nav {
+  height: 5em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $primary;
+  z-index: 1000;
+  color: $white;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  padding-top: .5em;
+
+  .col {
+    padding: 0 1em;
+
+    img {
+      height: 3em;
+    }
+  }
+
+  .menu {
+    text-align: left;
+    position: relative;
+
+    .cart-icon{
+      left: 1em;
+    }
+
+    .badge {
+      position: absolute;
+      top: 0.21em;
+      right: 1em;
+      width: 2em;
+      height: 2em;
+      border-radius: 1em;
+      background: $tec;
+      color: $white;
+      text-align: center;
+      padding: .4em;
+      font-weight: 600;
+      font-size: .65em;
+
+    }
+  }
+}
+
+.tabs {
+  background: $mid;
+  position: fixed;
+  top: 5em;
+  width: 100%;
+  height: 3em;
+  display: grid;
+  z-index: 1000;
+  grid-template-columns: repeat(4, 25%);
+
+  .tab {
+    color: $white;
+    // padding: 1em .1em;
+    text-align: center;
+    font-size: .7em;
+    padding-bottom: 1em;
+  }
+}
+
+
+.saloon,
+.laundry,
+.shopping,
+.carwash {
+  background: $white;
+  color: $primary !important;
+
+}
+
+
+.side-nav,
+.side-nav-overlay {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  background: $mid;
+  z-index: 2000;
+  animation: moveInLeft .2s ease-out 0s;
+  animation-fill-mode: backwards;
+  padding-top: 1em;
+
+  .nav-item {
+    img {
+      width: 100%;
+      padding: 1em;
+    }
+
+    h1 {
+      font-size: 1.2em;
+      color: $cloud;
+      padding: 0 1.1em;
+      margin-top: 2em;
+
+    }
+  }
+}
+
+.side-nav-overlay {
+  width: 100%;
+  z-index: 1900;
+  background: rgba(48, 46, 39, 0.596);
+  animation: fadeIn .1s ease-out 0s;
+  animation-fill-mode: backwards;
+
+}
+
+.profile {
+  background: $cloud;
+  color: $mid;
+  width: 3em;
+  height: 3em;
+  border-radius: 3em;
+  padding: .7em;
+  margin: .5em auto;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.hi {
+  text-transform: capitalize;
+  text-align: center;
+  color: $cloud;
+  margin-bottom: 1em;
+
+  a {
+    color: $cloud;
+    text-decoration: none;
+  }
+}

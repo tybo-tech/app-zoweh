@@ -1,0 +1,86 @@
+@import '../../../../assets/styles/color';
+
+.top {
+  display: grid;
+  grid-template-columns: 10% auto;
+  color: $white;
+  padding: 0 1em;
+  padding-bottom: .5em;
+
+
+  .header_ {
+    padding: .7em;
+  }
+}
+
+.summary {
+  h3 {
+    padding: 0 .85em;
+
+    span {
+      font-weight: 400;
+    }
+  }
+}
+
+.actions {
+  position: fixed;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 37% auto;
+  width: 100%;
+  padding: 0 .5em;
+  background: $black;
+
+  button {
+    margin: .5em;
+    width: 94%;
+    margin: .4em auto;
+    font-size: .85em;
+    font-weight: 600;
+    padding: 1em;
+    color: $white;
+    background: $primary;
+    border-radius: .4em;
+  }
+
+  .cancel {
+    background: $cloud;
+    color: $primary;
+  }
+}
+
+.add-more {
+  padding: 1em 0;
+  text-align: right;
+  padding-bottom: 0;
+
+  button {
+    margin: .5em;
+    width: 50%;
+    margin: .4em auto;
+    font-size: .75em;
+    font-weight: 600;
+    padding: 1em;
+    color: $white;
+    background: $tec;
+    border-radius: .4em;
+  }
+}
+
+.options{
+    .option{
+        display: grid;
+        grid-template-columns: 10% auto;
+
+        .label{
+            text-align:left;
+            padding: .5em;
+        }
+    }
+}
+
+.address{
+    padding: 1em 0;
+    border-top: 1px solid $grey;
+}

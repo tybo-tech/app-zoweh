@@ -1,0 +1,84 @@
+
+
+<div *ngIf="isLoggedIn">
+  <app-home-nav [showNav]="true" (navAction)="tab($event)"></app-home-nav>
+
+  
+<div class="main-list" *ngIf="products">
+
+  <div class="heading">
+    <h4 *ngIf="note">
+      <b>Note: </b>{{note}}
+    </h4>
+
+    <p>
+      Please choose a package and book now.
+    </p>
+  </div>
+
+  <div class="filters" *ngIf="cat ==='saloon'">
+    <div class="filter"  *ngFor="let category of categories; let i = index" [ngClass]="category.Class"  (click)="selectCategory(i)">
+      {{category.CategoryName}}
+    </div>
+  </div>
+  <div class="all-items">
+
+    <div class="list-items" *ngFor="let item of products" (click)="view(item)">
+
+      <div class="item">
+        <div class="icon" *ngIf="item.FeaturedImageUrl">
+          <div class="user-dp-image">
+            <img [src]="item.FeaturedImageUrl" alt="">
+          </div>
+        </div>
+
+        <div class="icon" *ngIf="!item.FeaturedImageUrl">
+          <div class="user-dp-image">
+            <img src="assets/images/icons/add.svg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <h1>
+          {{item.Name}}
+          <span class="code">
+            {{item.RegularPrice  | currency:'R'}} <i *ngIf="cat ==='laundry'">/ Kg</i>
+          </span>
+        </h1>
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+</div>
+
+
+<div class="menu">
+  <div class="item">
+    <a routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+
+      🏠 Home
+    </a>
+  </div>
+
+  <div class="item">
+    <a routerLink="/my-bookings" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+      📅 My Bookings
+    </a>
+  </div>
+  <div class="item">
+    <a routerLink="/my-profile" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+
+      👤 My Profile
+    </a>
+  </div>
+</div>
+</div>
+
+<div *ngIf="!isLoggedIn">
+  <app-intro-page></app-intro-page>
+</div>
+<!-- <app-dash-loader *ngIf="showLoader"></app-dash-loader> -->

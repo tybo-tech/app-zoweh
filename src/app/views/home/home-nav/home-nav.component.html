@@ -1,0 +1,112 @@
+<div class="top-nav">
+
+  <div class="menu col">
+    <span class="material-icons" (click)="toggle()">
+      menu
+    </span>
+    <span class="material-icons cart-icon" (click)="cart()">
+      shopping_cart
+    </span>
+
+    <span class="badge"  (click)="cart()">
+      {{cartCount}}
+    </span>
+  </div>
+  <div class="logo col"></div>
+  <div class="menu col">
+    <img src="assets/images/common/logo.png" alt="">
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab" (click)="tab('saloon')" [ngClass]="saloon">
+    <span class="material-icons">
+      content_cut
+    </span>
+    Salon
+  </div>
+  <div class="tab" (click)="tab('laundry')" [ngClass]="laundry">
+    <span class="material-icons">
+      local_laundry_service
+    </span>
+    Laundry
+  </div>
+  <div class="tab" (click)="tab('carwash')" [ngClass]="carwash">
+    <span class="material-icons">
+      local_car_wash
+    </span>
+    Car wash
+  </div>
+  <div class="tab" (click)="tab('shopping')" [ngClass]="shopping">
+    <span class="material-icons">
+      shopping_bag
+    </span>
+    Shop
+  </div>
+</div>
+
+
+<div class="side-nav-overlay" *ngIf="showMenu" (click)="toggle()"></div>
+
+
+<div class="side-nav" *ngIf="showMenu">
+
+  <div class="nav-item" *ngIf="user">
+    <div class="profile">
+      {{user.Name[0]}}{{user.Name[1]}}
+    </div>
+
+    <div class="hi">
+      Hi, {{user.Name}}
+    </div>
+    <a (click)="logout()">
+      <img src="assets/images/log.svg" alt="">
+    </a>
+  </div>
+  <div class="nav-item" *ngIf="!user">
+    <a (click)="login()">
+      <img src="assets/images/login.svg" alt="">
+    </a>
+  </div>
+  <div class="nav-item" *ngIf="!user">
+    <a (click)="register()">
+      <img src="assets/images/register.svg" alt="">
+    </a>
+  </div>
+  <div class="nav-item">
+    <h1>
+      Follow us.
+    </h1>
+    <a href="https://www.facebook.com/zowehhair">
+      <img src="assets/images/zfb.svg" alt="">
+    </a>
+  </div>
+
+  <div class="nav-item">
+    <a href="https://www.instagram.com/zoweh.sa/?hl=en">
+      <img src="assets/images/zinsta.svg" alt="">
+    </a>
+  </div>
+
+  <div class="nav-item">
+    <a (click)="contact()">
+      <img src="assets/images/cus.svg" alt="">
+    </a>
+    <div class="hi">
+
+
+      <a href="https://goo.gl/maps/Ab6cGS5XVkUFB68J8">
+        <span class="material-icons">
+          location_on
+        </span>
+        8 Frank Bull Rd <br>
+        Fairview <br>
+        <strong>Empangeni</strong> <br>
+      </a>
+      3880
+    </div>
+  </div>
+</div>
+
+
+<app-cart *ngIf="showCart" (cartAction)="cart()"></app-cart>

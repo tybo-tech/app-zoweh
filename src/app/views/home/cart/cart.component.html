@@ -1,0 +1,130 @@
+<div *ngIf="booking" class="success-modal">
+  <!-- <h1>
+    <span class="material-icons check">
+      check_circle_outline
+    </span>
+  </h1> -->
+  <h1>
+    <!-- {{product.Name}} added to booking successfully. -->
+  </h1>
+
+  <div class="top">
+    <div class="">
+      <span class="material-icons" (click)="back()">
+        chevron_left
+      </span>
+    </div>
+
+    <div class="header_">
+      Booking summary. </div>
+  </div>
+
+  <div class="summary">
+
+
+    <div class="item">
+      <span class="material-icons">
+        date_range
+      </span>
+      {{booking.BookingDate | date: 'mediumDate'}}
+    </div>
+
+    <div class="item">
+      <span class="material-icons">
+        access_time
+      </span>
+      {{booking.TimeId}}
+    </div>
+  </div>
+
+  <div class="summary">
+
+    <div class="item">
+
+      <div class="options">
+        <div class="option" (click)="callout('')">
+          <div class="toggle">
+            <span class="material-icons" *ngIf="!booking.IsCallout">
+              radio_button_checked
+            </span>
+            <span class="material-icons" *ngIf="booking.IsCallout">
+              radio_button_unchecked
+            </span>
+          </div>
+
+          <div class="label">
+            <!-- <a href="https://goo.gl/maps/Ab6cGS5XVkUFB68J8"> -->
+            <a>
+
+              Zoweh Emp branch (At the salon)
+            </a>
+          </div>
+        </div>
+
+        <div class="option" (click)="callout('add')">
+          <div class="toggle">
+            <span class="material-icons" *ngIf="booking.IsCallout">
+              radio_button_checked
+            </span>
+            <span class="material-icons" *ngIf="!booking.IsCallout">
+              radio_button_unchecked
+            </span>
+          </div>
+
+          <div class="label">
+            <a>
+
+              At your home (R50 callout fee)
+            </a>
+          </div>
+        </div>
+
+        <div class="address" *ngIf="booking.IsCallout">
+          <label for="">Please enter your address here (Must be in EMpangeni)</label>
+          <textarea [(ngModel)] ="booking.Place" (change)="chnage()"></textarea>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="summary" style="margin-bottom: 5em;">
+    <div class="item product-item" *ngFor="let item of booking.BookingItems; let i = index">
+      <div class="name">
+        {{item.ServiceName}} - {{item.ServicePrice  | currency:'R'}}
+      </div>
+
+      <div class="action">
+        <span class="material-icons" (click)="deleteItem(item, i)">
+          delete_forever
+        </span>
+      </div>
+    </div>
+
+
+
+    <h3>
+      <span>Total due: </span>
+      {{booking.TotalAmount  | currency:'R'}}
+    </h3>
+
+    <div class="add-more">
+      <button (click)="back()"> Add another service</button>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="actions">
+    <button class="cancel" (click)="cancel()"> Cancel</button>
+    <button (click)="checkout()"> Checkout</button>
+  </div>
+</div>
